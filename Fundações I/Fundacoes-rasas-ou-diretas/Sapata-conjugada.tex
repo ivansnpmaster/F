@@ -1,0 +1,62 @@
+Sapata conjugada é uma estrutura de fundação que associa dois ou mais pilares, alinhados num mesmo bloco.
+
+*Inserir figuras
+
+A fim de se obter as coordenadas do centro de carga (CC) do sistema, coloca-se um ponto referencial no centro de carga de $P1$ e realiza-se o somatório de momentos na direção $x$ na Figura $x$, ou seja:
+$$(P1+P2)\cdot x=P2\cdot d_1$$
+
+Isolando-se $x$ [que nesse caso é o centro de carga (CC) do sistema], tem-se:
+\begin{equation}x=\frac{P2\cdot d_1}{P1+P2}\end{equation}
+
+Da mesma maneira para a direção $y$, tem-se:
+$$(P1+P2)\cdot y=P2\cdot d_2$$
+
+Isolando-se $y$:
+\begin{equation}y=\frac{P2\cdot d_2}{P1+P2}\end{equation}
+
+A área de sapata conjugada necessária é obtida a partir das cargas dos pilares e da tensão admissível do solo ou, ainda, pelo produto de seus lados:
+\begin{equation}A=\frac{P1+P2}{\sigma_s}=a\cdot b\end{equation}
+
+Pode-se classificar a sapata conjugada quanto ao posicionamento dos pilares:
+
+\textbf{Próximos à divisa}:
+\begin{itemize}
+	\item Pilar mais leve fica mais próximo da divisa;
+	\item Pilar mais pesado fica mais próximo da divisa;
+\end{itemize}
+
+\textbf{Afastados da divisa}:
+\begin{itemize}
+	\item Pilares com o mesmo carregamento;
+	\item Pilares com carregamentos diferentes.
+\end{itemize}
+
+Para o \textbf{primeiro caso}, onde o pilar mais leve fica mais próxim da divisa, pode-se encontrar a coordenada $x_{CC}$ estabelecendo-se um ponto de referência $PR$ e fazendo a somatória dos momentos fletores em relação àquele ponto. Como segue:
+
+*Inserir figura
+
+$$x_{CC}=\frac{P1\cdot\displaystyle\frac{b_0}{2}+P2\cdot\left(d_1+\displaystyle\frac{b_0}{2}\right)}{P1+P2}$$
+
+Para o \textbf{segundo caso}, onde o pilar mais pesado fica mais próximo da divisa, deve-se utilizar o Método do Trapézio para encontrar as dimensões do seguinte sistema:
+
+*Inserir figura:
+
+O Método do Trapézio é realizado da seguinte forma:
+\begin{enumerate}
+	\item Calcular o centro de carga;
+	\item Adotar o valor de $y=x_{CC}$
+		\begin{equation}x_{CC}=\frac{P1\cdot x_1+P2\cdot x_2}{P1+P2}=y\end{equation}
+	\item Estimar o valor de $c$ em ($c<3\cdot y$)
+	\item Calcular a área da base da sapata:
+		$$A=\frac{P1+P2}{\sigma_s}$$
+		\begin{equation}A=(a+b)\cdot \frac{c}{2}\end{equation}
+	\item Calcular a parcela $(a+b)$:
+		\begin{equation}(a+b)=\frac{2\cdot A}{c}\end{equation}
+	\item Calcular o valor de $b$:
+		$$y=\frac{c}{3}\cdot\left[\frac{(a+b)+b}{a+b}\right]$$
+		\begin{equation}b=\left[\frac{3\cdot y}{c}\cdot(a+b)\right]-(a+b)\end{equation}
+	
+	Se $b<60\;cm$, retornar ao passo onde se estima o valor de $c$, diminuir o seu valor e recalcular $b$, passando pelos tópicos intermediários novamente.
+	\item Calcular $a$:
+		\begin{equation}a=\frac{2\cdot A}{c}-b\end{equation}
+\end{enumerate}
